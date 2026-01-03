@@ -6,34 +6,39 @@
     <title>MammoQuiz | Challenge Your Knowledge</title>
     <style>
         :root {
-            --primary: #6366f1;
-            --secondary: #a855f7;
-            --dark: #0f172a;
-            --light: #f8fafc;
+            /* Your App Colors */
+            --bg-1: #0F0F23;
+            --bg-2: #1A1A3E;
+            --bg-3: #2D1B4E;
+            --primary: #6366F1;
+            --secondary: #8B5CF6;
+            --cta: #EC4899;
+            --score: #FBBF24;
+            --text: #FFFFFF;
         }
 
         body {
             margin: 0;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: radial-gradient(circle at top right, #4f46e5, #0f172a);
-            color: var(--light);
+            /* Gradient using your Background 1 and Background 3 */
+            background: radial-gradient(circle at top right, var(--bg-3), var(--bg-1));
+            color: var(--text);
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(26, 26, 62, 0.6); /* Using Background 2 with transparency */
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3); /* Secondary Purple border */
             padding: 3rem;
             border-radius: 2rem;
             text-align: center;
             max-width: 500px;
             width: 90%;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
             animation: fadeIn 1s ease-out;
         }
 
@@ -45,7 +50,8 @@
         h1 {
             font-size: 3rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #818cf8, #c084fc);
+            /* Gradient using Primary Indigo and Secondary Purple */
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -59,20 +65,21 @@
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--cta); /* Pink Accent */
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.4);
             margin-bottom: 2rem;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.5);
+            filter: brightness(1.1);
         }
 
         .footer {
@@ -82,8 +89,9 @@
         }
 
         .contact-link {
-            color: #818cf8;
+            color: var(--score); /* Gold Color for links */
             text-decoration: none;
+            font-weight: bold;
         }
 
         .contact-link:hover { text-decoration: underline; }
@@ -91,7 +99,9 @@
         .badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--bg-3);
+            border: 1px solid var(--primary);
+            color: var(--score); /* Gold text for the badge */
             border-radius: 12px;
             font-size: 0.75rem;
             margin-bottom: 1rem;
@@ -108,7 +118,7 @@
         <p>The ultimate GK quiz challenge. Test your knowledge, track your progress, and become a trivia master.</p>
         
         <a href="https://play.google.com/store/apps/details?id=com.gk.mammoquiz" class="cta-button" target="_blank">
-            Download on Play Store
+            Get it on Google Play
         </a>
 
         <div class="footer">
