@@ -1,16 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>MammoQuiz - Official Developer Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MammoQuiz | Challenge Your Knowledge</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #202124; }
-        p { color: #5f6368; }
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at top right, #4f46e5, #0f172a);
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 2rem;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.5);
+        }
+
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-link {
+            color: #818cf8;
+            text-decoration: none;
+        }
+
+        .contact-link:hover { text-decoration: underline; }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
     </style>
 </head>
 <body>
-    <h1>MammoQuiz: GK Quiz Game</h1>
-    <p>Welcome to the official developer page for MammoQuiz.</p>
-    <p>Available on the Google Play Store.</p>
+
+    <div class="container">
+        <div class="badge">Official Developer Site</div>
+        <h1>MammoQuiz</h1>
+        <p>The ultimate GK quiz challenge. Test your knowledge, track your progress, and become a trivia master.</p>
+        
+        <a href="https://play.google.com/store/apps/details?id=com.gk.mammoquiz" class="cta-button" target="_blank">
+            Download on Play Store
+        </a>
+
+        <div class="footer">
+            <p>Support & Inquiries:<br>
+            <a href="mailto:chamithmathukorala@gmail.com" class="contact-link">chamithmathukorala@gmail.com</a></p>
+            <small>© 2026 MammoQuiz Development</small>
+        </div>
+    </div>
+
 </body>
 </html>
