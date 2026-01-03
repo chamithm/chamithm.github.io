@@ -1,0 +1,2 @@
+# AdMob app-ads.txt for MammoQuiz
+google.com, pub-5630497991413712, DIRECT, f08c47fec0942fa0
