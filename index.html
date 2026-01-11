@@ -4,104 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneClick Software Solutions | Chamith Madushan Athukorala</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #007bff;
-            --secondary-color: #28a745;
-            --text-dark: #2d3436;
-            --text-light: #636e72;
-            --bg-light: #f8f9fa;
+            --bg-dark: #0F0F23;        /* Dark Navy */
+            --bg-indigo: #1A1A3E;      /* Deep Indigo */
+            --accent-purple: #2D1B4E;  /* Dark Purple */
+            --text-main: #FFFFFF;
+            --text-dim: #b2bec3;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top right, var(--accent-purple), var(--bg-dark), var(--bg-dark));
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
         }
 
-        /* Header Styling */
+        /* Hero Section */
         header {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-            color: white;
-            padding: 4rem 1rem;
+            padding: 100px 20px 60px;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         }
 
-        header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
-        header p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        header h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        header p.dev-name {
+            font-size: 1.1rem;
+            color: #a29bfe;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            border: 1px solid var(--glass-border);
+        }
 
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-weight: 600;
-            border-bottom: 2px solid transparent;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
-        nav a:hover { border-bottom: 2px solid white; }
 
-        /* Main Content */
-        .container { max-width: 1000px; margin: -30px auto 40px; padding: 0 20px; }
+        nav a:hover { color: #a29bfe; }
 
-        h2 { text-align: center; margin-bottom: 30px; font-size: 2rem; }
-
-        /* App Cards Grid */
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+        /* App Grid */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        /* Glassmorphism App Card */
         .app-card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
         }
 
-        .app-card:hover { transform: translateY(-5px); }
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(162, 155, 254, 0.05));
+            pointer-events: none;
+        }
 
-        .app-header { display: flex; align-items: center; margin-bottom: 15px; }
-        .app-header img { width: 70px; height: 70px; border-radius: 14px; margin-right: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .app-header h3 { font-size: 1.3rem; color: var(--text-dark); }
+        .app-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(162, 155, 254, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
 
-        .app-card p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px; }
+        .app-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .app-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-right: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .app-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .app-card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
 
         .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 12px 20px;
+            background: #fff;
+            color: #0F0F23;
+            padding: 14px 24px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
+            border-radius: 12px;
+            font-weight: 700;
             text-align: center;
             transition: 0.3s;
+            display: block;
         }
-        .btn:hover { background-color: #218838; box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3); }
+
+        .btn:hover {
+            background: #a29bfe;
+            color: white;
+            box-shadow: 0 0 20px rgba(162, 155, 254, 0.4);
+        }
 
         /* Footer */
         footer {
-            background: #fff;
-            padding: 40px 20px;
+            margin-top: 100px;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.2);
             text-align: center;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--glass-border);
         }
-        footer p { color: var(--text-light); margin-bottom: 10px; }
-        footer a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
 
-        /* Responsive Fixes */
+        footer p { color: var(--text-dim); margin-bottom: 10px; }
+        footer a { color: #a29bfe; text-decoration: none; font-weight: 600; }
+
         @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
+            .app-grid { grid-template-columns: 1fr; }
             .app-header { flex-direction: column; text-align: center; }
             .app-header img { margin-right: 0; margin-bottom: 15px; }
         }
@@ -110,46 +184,47 @@
 <body>
 
 <header>
-    <h1>OneClick Software Solutions</h1>
-    <p>Premium Android Apps by Chamith Madushan Athukorala</p>
+    <h1>OneClick Software</h1>
+    <p class="dev-name">BY CHAMITH MADUSHAN ATHUKORALA</p>
     <nav>
         <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:chamithmathukorala@gmail.com">Support</a>
     </nav>
 </header>
 
 <div class="container">
-    <h2>Our Applications</h2>
+    <h2 class="section-title">Our Apps</h2>
     
     <div class="app-grid">
         <div class="app-card">
             <div class="app-content">
                 <div class="app-header">
-                    <img src="mammoquiz-icon.png" alt="MammoQuiz Icon">
+                    <img src="mammoquiz-icon.png" alt="MammoQuiz">
                     <h3>MammoQuiz: GK Quiz Game</h3>
                 </div>
-                <p>Are you ready to be a quiz master? Test your brain with our smart Mammoth! Join exciting levels, learn cool facts, and see amazing photos as you play. The most fun way to challenge your knowledge!</p>
+                <p>Are you ready to be a quiz master? Join our smart Mammoth and play through exciting levels. Learn cool facts and see amazing photos as you play! The most fun way to test your brain.</p>
             </div>
-            <a href="https://play.google.com/store/apps/details?id=com.gk.mammoquiz" target="_blank" class="btn">Get it on Google Play</a>
+            <a href="https://play.google.com/store/apps/details?id=com.gk.mammoquiz" class="btn" target="_blank">Download for Android</a>
         </div>
 
         <div class="app-card">
             <div class="app-content">
                 <div class="app-header">
-                    <img src="gk-sinhala-icon.png" alt="GK Sinhala Icon">
-                    <h3>Sinhala General Knowledge</h3>
+                    <img src="gk-sinhala-icon.png" alt="GK Game">
+                    <h3>Sinhala GK Game</h3>
                 </div>
-                <p>Play, learn, and have fun in Sinhala! Test your brain with exciting quiz levels designed to help you remember important facts easily. Unlock levels, earn stars, and become a Sinhala GK master!</p>
+                <p>Test your brain and improve your general knowledge in Sinhala. Unlock levels, earn stars, and challenge yourself to become a master in this fun, game-like learning experience!</p>
             </div>
-            <a href="https://play.google.com/store/apps/details?id=com.general_knowladge.general_knowladge_app" target="_blank" class="btn">Get it on Google Play</a>
+            <a href="https://play.google.com/store/apps/details?id=com.general_knowladge.general_knowladge_app" class="btn" target="_blank">Download for Android</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 OneClick Software Solutions | Chamith Madushan Athukorala</p>
-    <p>Questions? Contact us at: <a href="mailto:chamithmathukorala@gmail.com">chamithmathukorala@gmail.com</a></p>
-    <p>Located in Sri Lanka</p>
+    <p>&copy; 2026 OneClick Software Solutions</p>
+    <p>Developer: Chamith Madushan Athukorala</p>
+    <p>Contact: <a href="mailto:chamithmathukorala@gmail.com">chamithmathukorala@gmail.com</a></p>
 </footer>
 
 </body>
