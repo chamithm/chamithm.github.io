@@ -3,228 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneClick Software Solutions | Chamith Madushan Athukorala</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>OneClick Software | Premium Mobile Experiences</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0F0F23;        /* Dark Navy */
-            --bg-indigo: #1A1A3E;      /* Deep Indigo */
-            --accent-purple: #2D1B4E;  /* Dark Purple */
-            --text-main: #FFFFFF;
-            --text-dim: #b2bec3;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --bg: #0F0F23;
+            --surface: #1A1A3E;
+            --accent: #6c5ce7;
+            --purple-glow: #2D1B4E;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0c0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: radial-gradient(circle at top right, var(--accent-purple), var(--bg-dark), var(--bg-dark));
-            background-attachment: fixed;
-            color: var(--text-main);
-            min-height: 100vh;
+            background-color: var(--bg);
+            background: radial-gradient(circle at 0% 0%, var(--purple-glow) 0%, var(--bg) 50%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Hero Section */
-        header {
-            padding: 100px 20px 60px;
-            text-align: center;
+        /* Modern Typography Logo */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
         }
 
-        header h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        .logo {
             font-weight: 800;
-            background: linear-gradient(to right, #fff, #a29bfe);
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        header p.dev-name {
-            font-size: 1.1rem;
-            color: #a29bfe;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-
-        nav {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            border: 1px solid var(--glass-border);
-        }
-
-        nav a {
-            color: white;
             text-decoration: none;
-            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
+            margin-left: 30px;
             transition: 0.3s;
         }
 
-        nav a:hover { color: #a29bfe; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 10% 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .dev-badge {
+            display: inline-block;
+            background: var(--glass);
+            padding: 8px 16px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
 
         /* App Grid */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2rem;
-        }
+        .container { padding: 0 10% 100px; }
 
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
 
-        /* Glassmorphism App Card */
         .app-card {
             background: var(--glass);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 30px;
-            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(162, 155, 254, 0.05));
-            pointer-events: none;
         }
 
         .app-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(162, 155, 254, 0.4);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        .app-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .app-header img {
+        .app-icon {
             width: 80px;
             height: 80px;
-            border-radius: 18px;
-            margin-right: 20px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        .app-header h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
+        .app-card h3 { font-size: 1.6rem; margin-bottom: 15px; }
 
         .app-card p {
-            color: var(--text-dim);
+            color: var(--text-secondary);
             font-size: 1rem;
             margin-bottom: 30px;
             flex-grow: 1;
         }
 
         .btn {
-            background: #fff;
-            color: #0F0F23;
-            padding: 14px 24px;
+            background: var(--text-primary);
+            color: var(--bg);
+            padding: 16px 32px;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 16px;
             font-weight: 700;
             text-align: center;
             transition: 0.3s;
-            display: block;
         }
 
         .btn:hover {
-            background: #a29bfe;
+            background: var(--accent);
             color: white;
-            box-shadow: 0 0 20px rgba(162, 155, 254, 0.4);
+            transform: scale(1.02);
         }
 
         /* Footer */
         footer {
-            margin-top: 100px;
-            padding: 60px 20px;
-            background: rgba(0,0,0,0.2);
+            padding: 80px 10%;
+            background: #090916;
             text-align: center;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid var(--border);
         }
 
-        footer p { color: var(--text-dim); margin-bottom: 10px; }
-        footer a { color: #a29bfe; text-decoration: none; font-weight: 600; }
+        .footer-content h4 { font-size: 1.2rem; margin-bottom: 20px; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; }
+        .footer-content a { color: var(--text-primary); text-decoration: none; }
 
-        @media (max-width: 600px) {
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar { padding: 20px 5%; }
+            .hero { padding-top: 140px; }
             .app-grid { grid-template-columns: 1fr; }
-            .app-header { flex-direction: column; text-align: center; }
-            .app-header img { margin-right: 0; margin-bottom: 15px; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>OneClick Software</h1>
-    <p class="dev-name">BY CHAMITH MADUSHAN ATHUKORALA</p>
-    <nav>
+<nav class="navbar">
+    <a href="#" class="logo">OneClick</a>
+    <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="privacy.html">Privacy</a>
-        <a href="mailto:chamithmathukorala@gmail.com">Support</a>
-    </nav>
-</header>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="dev-badge">Studio Portfolio</div>
+    <h1>Building the future of <span style="color: var(--accent);">interactive</span> apps.</h1>
+    <p>Creating high-quality Android applications with a focus on education, knowledge, and user experience.</p>
+</section>
 
 <div class="container">
-    <h2 class="section-title">Our Apps</h2>
-    
     <div class="app-grid">
         <div class="app-card">
-            <div class="app-content">
-                <div class="app-header">
-                    <img src="mammoquiz-icon.png" alt="MammoQuiz">
-                    <h3>MammoQuiz: GK Quiz Game</h3>
-                </div>
-                <p>Are you ready to be a quiz master? Join our smart Mammoth and play through exciting levels. Learn cool facts and see amazing photos as you play! The most fun way to test your brain.</p>
+            <div class="content">
+                <img src="mammoquiz-icon.png" alt="MammoQuiz" class="app-icon">
+                <h3>MammoQuiz: GK Quiz</h3>
+                <p>Are you ready to be a quiz master? Join our smart Mammoth and play through exciting levels. Learn cool facts and see amazing photos as you play!</p>
             </div>
-            <a href="https://play.google.com/store/apps/details?id=com.gk.mammoquiz" class="btn" target="_blank">Download for Android</a>
+            <a href="https://play.google.com/store/apps/details?id=com.gk.mammoquiz" class="btn" target="_blank">Google Play</a>
         </div>
 
         <div class="app-card">
-            <div class="app-content">
-                <div class="app-header">
-                    <img src="gk-sinhala-icon.png" alt="GK Game">
-                    <h3>Sinhala GK Game</h3>
-                </div>
-                <p>Test your brain and improve your general knowledge in Sinhala. Unlock levels, earn stars, and challenge yourself to become a master in this fun, game-like learning experience!</p>
+            <div class="content">
+                <img src="gk-sinhala-icon.png" alt="GK Game" class="app-icon">
+                <h3>Sinhala GK Game</h3>
+                <p>Test your brain and improve your general knowledge through exciting quiz levels in Sinhala. Unlock levels, earn stars, and master important facts.</p>
             </div>
-            <a href="https://play.google.com/store/apps/details?id=com.general_knowladge.general_knowladge_app" class="btn" target="_blank">Download for Android</a>
+            <a href="https://play.google.com/store/apps/details?id=com.general_knowladge.general_knowladge_app" class="btn" target="_blank">Google Play</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 OneClick Software Solutions</p>
-    <p>Developer: Chamith Madushan Athukorala</p>
-    <p>Contact: <a href="mailto:chamithmathukorala@gmail.com">chamithmathukorala@gmail.com</a></p>
+    <div class="footer-content">
+        <h4>OneClick Software Solutions</h4>
+        <p>Developed & Owned by <strong>Chamith Madushan Athukorala</strong></p>
+        <p>Colombo, Sri Lanka</p>
+        <p>Contact: <a href="mailto:chamithmathukorala@gmail.com">chamithmathukorala@gmail.com</a></p>
+    </div>
 </footer>
 
 </body>
